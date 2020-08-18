@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 7</title>
+</head>
+
+<html lang="en-NO">
+
+<body onload="Recalculate()">
+    <h1 style="text-align: center;">Oppgave 7</h1>
+    <hr>
+    <div class="header">
+        <div style="float:left; margin-left: 24%; margin-top: 1%;">
+            SizeX:
+            <input type="range" min="128" max="1024" class="sliderX" id="sliderX" value="512" oninput="Recalculate()">
+        </div>
+        <div style="float:right; margin-right: 24%; margin-top: 1%;">
+            SizeY:
+            <input type="range" min="128" max="1024" class="sliderY" id="sliderY" value="512" oninput="Recalculate()">
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="mainContent" id="mainContent">
+        <div id="dimensjon">Dimensjon:</div>
+        <div id="omkrets">Omkrets:</div>
+        <div id="areal">Areal:</div>
+    </div>
+    <hr>
+</body>
+</html>
+
+<script>
+
+    // Element references
+    var sliderElementX = document.getElementById('sliderX');
+    var sliderElementY = document.getElementById('sliderY');
+    var elementResult = document.getElementById('mainContent');
+    var arealElement = document.getElementById('areal');
+    var omkretsElement = document.getElementById('omkrets');
+    var dimensjonElement = document.getElementById('dimensjon');
+
+    function Recalculate() {
+        var valueX = sliderElementX.value, valueY = sliderElementY.value;
+
+        elementResult.style.width = "" + valueX + "px";
+        elementResult.style.height = "" + valueY + "px";
+
+        CalculateSurfaceArea(valueX, valueY);
+		CalculateCircumference(valueX, valueY);
+		GetDimensions(valueX, valueY);
+    }
+
+    // Areal
+    function CalculateSurfaceArea(x, y) {
+		arealElement.innerText = 'Areal: ' + (x * y) + ' px';
+    }
+
+    // Omkrets
+	function CalculateCircumference(x, y) {
+		omkretsElement.innerText = 'Omkrets: ' + (x * 2) + (y * 2) + 'px';
+    }
+
+    // Dimensjon.
+	function GetDimensions(x, y)
+    {
+
+		dimensjonElement.innerText = 'Dimensjon: ' + x + 'x' + y;
+    }
+</script>
+
+<style>
+    body {
+        background-color: wheat;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+    }
+
+    div.mainContent {
+        background-color: khaki;
+        height: 512px;
+        width: 512px;
+        min-height: 128px;
+        max-height: 1024px;
+        min-width: 128px;
+        max-width: 1024px;
+        margin: 1% auto;
+        border: 1px solid black;
+    }
+
+    div.header {
+        background-color: rgb(207, 198, 119);
+        height: 5%;
+        width: 50%;
+        margin: auto;
+        border: 2px solid black;
+    }
+</style>

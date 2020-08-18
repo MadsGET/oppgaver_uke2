@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+</head>
+
+<html lang="en-NO">
+    <style>
+        body
+        {
+            background-color: wheat;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        h1
+        {
+            text-align: center;
+            color: green;
+        }
+                
+        td
+        {
+            height: 16px;
+            width: 16px;
+            text-align: center;
+            background-color: brown;
+        }    
+    </style>
+
+    <body>
+        <script>         
+            function OnMouseEvent(element)
+            {
+                if(element.innerText == "x")
+                {
+                    element.innerText = "o";
+                }
+                else
+                {
+                    element.innerText = "x";
+                }
+            }
+        </script>
+
+        <h1>Oppgave 3</h1>
+        <hr>
+            <table style="margin:auto;">
+                <tr>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                </tr>
+                <tr>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                    <td onmouseover="OnMouseEvent(this)" onmouseout="OnMouseEvent(this)">o</td>
+                </tr>
+            </table> 
+        <hr>
+    </body>
+</html>

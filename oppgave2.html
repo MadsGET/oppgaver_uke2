@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+</head>
+
+<html lang="en-NO">
+    <style>
+        body
+        {
+            background-color: wheat;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        h1
+        {
+            text-align: center;
+            color: green;
+        }
+    </style>
+
+    <script>        
+        function LogEvent(eventType)
+        {
+            console.log("Event Type: " + eventType);
+        }
+    </script>
+
+    <body ondblclick="LogEvent('Double Click')" oncontextmenu="LogEvent('Context Menu')" onkeydown="LogEvent('Keyboard Input')" >
+        <h1>Oppgave 2</h1>
+        <hr>        
+            <p style="text-align: center;">Test denne med å dobble klikke hvor som helst. Eller høyreklikk, eller trykk en tast på tastaturet. Så kan du sjekke konsolen :)</p>
+        <hr>
+    </body>
+</html>

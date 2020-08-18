@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 5</title>
+</head>
+
+<html lang="en-NO">
+    <style>
+        body
+        {
+            background-color: wheat;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        h1
+        {
+            text-align: center;
+            color: green;
+        }
+    </style>
+
+    <body onload="GetTime()">
+
+        <script>
+
+            var timeOnStart = new Date().toTimeString();
+
+            function GetTime()
+            {
+                document.getElementById('date').innerHTML = 'On Start:' + timeOnStart +  '<br> On Load:' + new Date().toTimeString();
+            }
+        </script>
+        <h1>Oppgave 5</h1>
+        <hr>
+        <div id="date">
+        </div>
+        <div id="bilder">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1200px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+        </div>
+    </body>
+</html>

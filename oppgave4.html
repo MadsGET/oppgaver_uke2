@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 4</title>
+</head>
+
+<html lang="en-NO">
+    <style>
+        body
+        {
+            background-color: wheat;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        h1
+        {
+            text-align: center;
+            color: green;
+        }
+
+        p.codeDisplay
+        {
+            background-color: grey;
+            border: 2px solid black;
+            text-align: left;
+            height: 32px;
+            width: 192px;
+        }
+
+        button.codeLock
+        {
+            text-align: center;
+            height: 64px;
+            width: 64px;
+        }   
+    </style>
+
+    <body>
+
+        <script>
+            var code = [3, 8, 1, 2];
+            var codeInput = [];
+
+            function OnCodeInput(input)
+            {
+                if(codeInput.length > code.length - 1)
+                {
+                    return;
+                }
+    
+                codeInput[codeInput.length] = input;
+                UpdateCodeDisplay(codeInput);
+            }
+    
+            function RemoveCodeInput()
+            {
+                if(codeInput.length >= 0)
+                {
+                    codeInput.splice(codeInput.length - 1, 1)
+                    UpdateCodeDisplay(codeInput);
+                }
+            }
+    
+            function TryCodeInput()
+            {
+    
+                if(code.length != codeInput.length)
+                {
+                    return;
+                }
+    
+                var solved = true;
+                
+                for(var i = 0; i < code.length; i++)
+                {
+                    if(code[i] != codeInput[i])
+                    {
+                        solved = false;
+                        continue;
+                    }
+                }
+                
+                UpdateCodeDisplay((solved) ? "Unlocked" : "Wrong Code");
+                codeInput = [];
+            }
+    
+            function UpdateCodeDisplay(text)
+            {
+                document.getElementById('codeDisplay').innerText = "Input: " + text;
+            }   
+        </script>
+    
+        <h1>Oppgave 4</h1>
+        <hr>
+            <div class="gridContainer" style="margin-left: 45%;">
+                <p class="codeDisplay" id ="codeDisplay">Input:</p>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">1</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">2</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">3</button>
+                <br>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">4</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">5</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">6</button>
+                <br>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">7</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">8</button>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">9</button>
+                <br>
+                <button onclick="OnCodeInput(Number(this.innerText))" class="codeLock">0</button>
+                <button onclick="RemoveCodeInput()" class="codeLock">C</button>
+                <button onclick="TryCodeInput()" class="codeLock">-></button>
+            </div>
+        <hr>
+    </body>
+</html>
