@@ -13,19 +13,22 @@
                 <!--<button onClick="alert('true')">OppgaveNavn</button>-->
             </div>
         <hr>
+        <p>Oppgave 10, har blitt gjort. Oppgave 11 var min opprinlige løsning.</p>
     </body>
 </html>
 
 <script>
 
-    var assignmentsDone = 9;
+    var assignmentsDone = 10;
 
     function LoadAssignment(index)
     {
         window.open("oppgave" + index + ".html");
     }
 
-    function CreateAssignments() {
+    function CreateAssignments()
+    {
+
         for (var i = 0; i < assignmentsDone; i++)
         {
 			document.getElementById('assignmentContainer').innerHTML += "<button onClick='LoadAssignment(" + (i+1) +")'>Oppgave " + (i+1) + "</button>";

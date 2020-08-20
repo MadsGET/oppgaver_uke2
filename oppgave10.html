@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Oppgave 12</title>
+</head>
+
+<style>
+	body {
+		background-color: wheat;
+		height: 100vh;
+		width: 100vw;
+		margin: 0;
+	}
+
+	h1 {
+		text-align: center;
+		color: green;
+	}
+</style>
+
+<html lang="en-NO">
+<body>
+    <h1>Oppgave 12</h1>
+</body>
+</html>
+
+<script>
+
+	var wordArray = ["du", "er", "kul", "og", "han", "sa", "dust", "faen", "yolo", "lol", "ok", "nå", "har", "ikke"];
+
+	tilfeldigFirkant();
+
+	function tilfeldigFirkant() {
+		var endX = tilfeldigTall(window.innerWidth * 0.2, window.innerWidth);
+		var endY = tilfeldigTall(window.innerHeight * 0.2, window.innerHeight);
+
+		var startX = tilfeldigTall(1, endX * 0.8);
+		var startY = tilfeldigTall(1, endY * 0.8);
+		var bredde = endX - startX;
+		var høyde = endY - startY;
+		var farge = tilfeldigFarge();
+		var divHtml = '<div style="' +
+			delAvStylePx('left', startX) +
+			delAvStylePx('top', startY) +
+			delAvStylePx('width', bredde) +
+			delAvStylePx('height', høyde) +
+			delAvStyle('background-color', farge) +
+			'">' + RandomWord() +'</div>';
+		document.write(divHtml);
+		if (Math.random() < 0.9) tilfeldigFirkant();
+	}
+
+	function delAvStylePx(navn, verdi) {
+		return delAvStyle(navn, verdi + 'px');
+	}
+
+	function delAvStyle(navn, verdi) {
+		return navn + ':' + verdi + ';';
+	}
+
+	function tilfeldigFarge() {
+		return '#' +
+			tilfeldigTallEllerBokstavABCDEF() +
+			tilfeldigTallEllerBokstavABCDEF() +
+			tilfeldigTallEllerBokstavABCDEF() +
+			tilfeldigTallEllerBokstavABCDEF() +
+			tilfeldigTallEllerBokstavABCDEF() +
+			tilfeldigTallEllerBokstavABCDEF();
+	}
+
+	function tilfeldigTallEllerBokstavABCDEF() {
+		var tall = tilfeldigTall(0, 15);
+		if (tall < 10) return tall;
+		const charCodeA = 'a'.charCodeAt(0);
+		return String.fromCharCode(tall - 10 + charCodeA);
+	}
+
+	function tilfeldigBokstav() {
+		var tall = tilfeldigTall(0, 28);
+
+		if (tall < 10)
+		{
+			return tall;
+		}
+		else
+		{
+			const charCodeA = 'a'.charCodeAt(0);
+			return String.fromCharCode(tall - 10 + charCodeA);
+		}
+
+		if (tall == 28)
+		{
+			return 'å';
+		}
+
+		if (tall == 27)
+		{
+			return 'ø';
+		}
+
+		if (tall == 26)
+		{
+			return 'æ';
+		}
+
+		return String.fromCharCode(tall + charCodeA);
+	}
+
+	function RandomWord()
+	{
+		return wordArray[Math.round(Math.random() * wordArray.length)];
+	}
+
+	function tilfeldigTall(minimum, maksimum) {
+		return minimum + Math.floor(Math.random() * (maksimum - minimum + 1));
+	}
+</script>
