@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Oppgave 8</title>
+</head>
+
+<style>
+	body {
+		background-color: wheat;
+		height: 100vh;
+		width: 100vw;
+		margin: 0;
+	}
+
+	div.random 
+	{
+		background-color: teal;
+		border: 16px solid green;
+		box-sizing: border-box;
+		margin: auto;
+		height: 64px;
+		width: 64px;
+	}
+</style>
+
+<html lang="en-NO">
+<body>
+	<h1 style="text-align:center">Oppgave 8</h1>
+	<hr />
+	<div style="height: 512px; width:512px; margin: auto">
+		<div class="random" id="random">
+
+		</div>
+	</div>
+	<hr />
+	<button style="margin-left:48vw; margin-right: 50vw" onclick="GenerateRandomBox()">Generate</button>
+	<hr />
+	<div class="result" id="result"></div>
+</body>
+</html>
+
+<script>
+	var randomHeight, randomWidth, randomBorderSize;
+	var randomElement = document.getElementById('random');
+	var result = document.getElementById('result');
+
+	function GenerateRandomBox() {
+		CastRandomValues();
+
+		randomElement.style.height = randomHeight + 'px';
+		randomElement.style.width = randomWidth + 'px';
+		randomElement.style.border = randomBorderSize + 'px solid green';
+	}
+
+	function CastRandomValues() {
+		randomHeight = 64 + Math.round((Math.random() * 448));
+		randomWidth = 64 + Math.round((Math.random() * 448));
+		randomBorderSize = Math.round((Math.random() * 24));
+
+		result.innerHTML = 'Height: ' + randomHeight + ' px' +
+							' Width: ' + randomWidth + ' px' +
+							' Border: ' + randomBorderSize + 'px';
+	}
+</script>

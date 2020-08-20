@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Oppgave 9</title>
+</head>
+
+<style>
+	* 
+	{
+		margin: 0;
+		padding:0;
+	}
+
+	body 
+	{
+		background-color: wheat;	
+		height: 100vh;
+		width: 100vw;
+		text-align:center;
+	}
+
+	.alignHorizontal
+	{	
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.spaceVertical 
+	{
+		margin-top:1%;
+		margin-bottom:1%;
+	}
+
+	div.effectContainer, div.resultContainer, div.buttonContainer 
+	{
+		display: grid;
+		border: 3px solid darkKhaki;
+		background-color: khaki;
+		grid-gap: 1%;
+		padding: 0.5%;
+	}
+
+	div.resultContainer 
+	{
+		width: 50%;
+		height: 24%;
+		grid-template: 'result result result result result';
+	}
+
+	div.effectContainer 
+	{
+		width: 51%;
+		height: 2%;
+		grid-template: 'effectBox effectBox effectBox effectBox effectBox';
+	}
+
+	div.effectBox 
+	{
+		background-color:burlywood;
+		border: 1px solid red;
+		height:100%;
+	}
+
+	.result 
+	{
+		height: 66%;
+		width: 100%;
+		margin-top: 24%;
+		margin-bottom: 24%;
+		background-color: saddlebrown;
+		box-sizing: border-box;
+		border: 4px solid darkKhaki;
+	}
+
+	.selected 
+	{
+		border-color:darkslategrey;
+	}
+
+	/* Border */
+	.effect1 
+	{
+		background-color:red;
+	}
+
+	/* border color */
+	.effect2 
+	{
+		border-style: dotted;
+	}
+
+	/* height */
+	.effect3 
+	{
+		border-radius: 8px;
+	}
+
+	/* width */
+	.effect4 
+	{
+		border-top: none;
+		border-bottom:none;
+	}
+
+	/* box shadows */
+	.effect5 
+	{
+		box-shadow: black -2px -2px inset;
+	}
+
+</style>
+
+<html lang="en-NO">
+<body>
+	<div>
+		<h1 style="padding:16px 0px 16px 0px">Oppgave 9</h1>
+	</div>
+	<hr/>
+	<div class="resultContainer alignHorizontal spaceVertical">
+
+		<div class="result selected" id="result1" onclick="OnSelection(this)"></div>
+		<div class="result" id="result2" onclick="OnSelection(this)"></div>
+		<div class="result" id="result3" onclick="OnSelection(this)"></div>
+		<div class="result" id="result4" onclick="OnSelection(this)"></div>
+		<div class="result" id="result5" onclick="OnSelection(this)"></div>
+	</div>
+	<hr/>
+	<div class="effectContainer alignHorizontal spaceVertical">
+		<div class="effectBox">
+			Effect#1 <input type="checkbox" id="input1" onchange="SetEffectState(this, 1)" />
+		</div>
+
+		<div class="effectBox">
+			Effect#2 <input type="checkbox" id="input2" onchange="SetEffectState(this, 2)" />
+		</div>
+
+		<div class="effectBox">
+			Effect#3 <input type="checkbox" id="input3" onchange="SetEffectState(this, 3)" />
+		</div>
+		
+		<div class="effectBox">
+			Effect#4 <input type="checkbox" id="input4" onchange="SetEffectState(this, 4)" />
+		</div>
+		
+		<div class="effectBox">
+			Effect#5 <input type="checkbox" id="input5" onchange="SetEffectState(this, 5)" />
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script>
+
+	var selectedElement = result1;
+
+	function SetEffectState(element, index)
+	{
+		if (element.checked)
+		{
+			// Add effect, and set checked state.
+			selectedElement.classList.add('effect' + index);
+			element.checked = true;
+		}
+		else
+		{
+			// Remove effect, and set checked state.
+			selectedElement.classList.remove('effect' + index);
+			element.checked = false;
+		}
+	}
+
+	function OnSelection(element)
+	{
+		// If selected element is not empty, add selected class.
+		if (selectedElement != null)
+		{
+			selectedElement.classList.remove('selected');
+		}
+
+		// Set style for new selected element, and set a reference to it.
+		element.classList.add('selected');
+		selectedElement = element;
+
+		for (var i = 0; i < 5; i++)
+		{
+			// Fetch each input field.
+			var inputToFetch = 'input' + (i + 1);
+
+			// Does this element contain the effect?
+			if (selectedElement.classList.contains('effect' + (i + 1))) {
+
+				// Enable checkbox tick.
+				document.getElementById(inputToFetch).checked = true;
+			}
+			else
+			{
+				// Disable checkbox tick.
+				document.getElementById(inputToFetch).checked = false;
+			}
+		}
+	}
+
+
+</script>
